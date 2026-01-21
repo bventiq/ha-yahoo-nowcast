@@ -34,10 +34,11 @@ STEP_USER_DATA_SCHEMA = vol.Schema({
     vol.Optional(CONF_FORECAST_MINUTES, default=DEFAULT_FORECAST_MINUTES): vol.Coerce(int),
 })
 
-class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
+class ConfigFlow(config_entries.ConfigFlow):
     """Handle a config flow for Yahoo Nowcast (JP)."""
 
     VERSION = 1
+    DOMAIN = DOMAIN
 
     async def async_step_user(
         self, user_input: dict[str, Any] | None = None

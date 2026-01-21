@@ -1,5 +1,5 @@
 {
-    "domain": "Yahoo Nowcast (JP)",
+    "domain": "yahoo_nowcast_jp",
     "name": "Yahoo Nowcast (JP)",
     "version": "1.0.0",
     "documentation": "https://github.com/bventiq/ha-yahoo-nowcast",

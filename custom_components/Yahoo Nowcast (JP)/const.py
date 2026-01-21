@@ -1,6 +1,6 @@
 """Constants for the Yahoo Nowcast (JP) integration."""
 
-DOMAIN = "jma_precipitation_nowcast"
+DOMAIN = "yahoo_nowcast_jp"
 CONF_API_KEY = "api_key"
 CONF_LATITUDE = "latitude"
 CONF_LONGITUDE = "longitude"
