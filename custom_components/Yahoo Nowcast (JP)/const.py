@@ -1,4 +1,4 @@
-"""Constants for the JMA Precipitation Nowcast integration."""
+"""Constants for the Yahoo Nowcast (JP) integration."""
 
 DOMAIN = "jma_precipitation_nowcast"
 CONF_API_KEY = "api_key"

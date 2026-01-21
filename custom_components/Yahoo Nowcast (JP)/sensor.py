@@ -1,4 +1,4 @@
-"""Sensor platform for JMA Precipitation Nowcast."""
+"""Sensor platform for Yahoo Nowcast (JP)."""
 from __future__ import annotations
 
 from homeassistant.components.sensor import SensorEntity

@@ -1,6 +1,6 @@
 {
     "domain": "jma_precipitation_nowcast",
-    "name": "JMA Precipitation Nowcast",
+    "name": "Yahoo Nowcast (JP)",
     "version": "1.0.0",
     "documentation": "https://github.com/bventiq/ha-yahoo-nowcast",
     "issue_tracker": "https://github.com/bventiq/ha-yahoo-nowcast/issues",
@@ -8,6 +8,5 @@
     "codeowners": ["@bventiq"],
     "config_flow": true,
     "dependencies": [],
-    "iot_class": "cloud_polling",
-    "icon": "mdi:weather-rainy"
+    "iot_class": "cloud_polling"
   }

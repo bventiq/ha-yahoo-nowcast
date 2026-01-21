@@ -1,4 +1,4 @@
-"""Binary sensor platform for JMA Precipitation Nowcast."""
+"""Binary sensor platform for Yahoo Nowcast (JP)."""
 from __future__ import annotations
 
 from homeassistant.components.binary_sensor import BinarySensorEntity, BinarySensorDeviceClass

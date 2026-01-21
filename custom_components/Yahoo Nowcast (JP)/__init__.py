@@ -1,4 +1,4 @@
-"""The JMA Precipitation Nowcast integration."""
+"""The Yahoo Nowcast (JP) integration."""
 from __future__ import annotations
 
 import logging
@@ -17,7 +17,7 @@ _LOGGER = logging.getLogger(__name__)
 PLATFORMS: list[Platform] = [Platform.SENSOR, Platform.BINARY_SENSOR]
 
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
-    """Set up JMA Precipitation Nowcast from a config entry."""
+    """Set up Yahoo Nowcast (JP) from a config entry."""
     
     # APIクライアントの初期化
     api = YahooWeatherAPI(

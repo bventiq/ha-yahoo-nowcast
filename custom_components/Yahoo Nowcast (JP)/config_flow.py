@@ -1,4 +1,4 @@
-"""Config flow for JMA Precipitation Nowcast integration."""
+"""Config flow for Yahoo Nowcast (JP) integration."""
 from __future__ import annotations
 
 import logging
@@ -35,7 +35,7 @@ STEP_USER_DATA_SCHEMA = vol.Schema({
 })
 
 class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
-    """Handle a config flow for JMA Precipitation Nowcast."""
+    """Handle a config flow for Yahoo Nowcast (JP)."""
 
     VERSION = 1
 

@@ -2,7 +2,7 @@
     "config": {
       "step": {
         "user": {
-          "title": "JMA Precipitation Nowcast Setup",
+          "title": "Yahoo Nowcast (JP) Setup",
           "description": "Configure your Yahoo! JAPAN API key and observation location.",
           "data": {
             "api_key": "API Key (Yahoo! JAPAN)",

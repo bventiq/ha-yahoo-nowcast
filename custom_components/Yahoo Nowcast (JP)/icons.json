@@ -1,4 +1,5 @@
 {
+  "integration": "icon.svg",
   "services": {
     "get_forecast": {
       "description": "Get precipitation forecast",
