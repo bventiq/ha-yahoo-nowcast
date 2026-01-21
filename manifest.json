@@ -1,0 +1,12 @@
+{
+    "domain": "jma_precipitation_nowcast",
+    "name": "JMA Precipitation Nowcast",
+    "version": "1.0.0",
+    "documentation": "https://github.com/yourusername/jma_precipitation_nowcast",
+    "requirements": ["aiohttp>=3.8.0"],
+    "codeowners": ["@yourusername"],
+    "config_flow": true,
+    "dependencies": [],
+    "iot_class": "cloud_polling",
+    "icon": "mdi:weather-rainy"
+  }

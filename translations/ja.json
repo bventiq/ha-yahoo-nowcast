@@ -1,0 +1,25 @@
+{
+    "config": {
+      "step": {
+        "user": {
+          "title": "降水ナウキャスト設定",
+          "description": "Yahoo! JAPAN APIキーと観測地点を設定してください。",
+          "data": {
+            "api_key": "APIキー (Yahoo! JAPAN)",
+            "latitude": "緯度",
+            "longitude": "経度",
+            "threshold": "降水検知閾値 (mm/h)",
+            "forecast_minutes": "予測時間 (分)"
+          }
+        }
+      },
+      "error": {
+        "cannot_connect": "APIに接続できません",
+        "invalid_auth": "APIキーが無効です",
+        "unknown": "予期しないエラーが発生しました"
+      },
+      "abort": {
+        "already_configured": "既に設定されています"
+      }
+    }
+  }

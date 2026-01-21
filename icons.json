@@ -1,0 +1,8 @@
+{
+  "services": {
+    "get_forecast": {
+      "description": "Get precipitation forecast",
+      "fields": {}
+    }
+  }
+}
