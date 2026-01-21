@@ -1,0 +1,25 @@
+{
+    "config": {
+      "step": {
+        "user": {
+          "title": "JMA Precipitation Nowcast Setup",
+          "description": "Configure your Yahoo! JAPAN API key and observation location.",
+          "data": {
+            "api_key": "API Key (Yahoo! JAPAN)",
+            "latitude": "Latitude",
+            "longitude": "Longitude",
+            "threshold": "Precipitation Detection Threshold (mm/h)",
+            "forecast_minutes": "Forecast Duration (minutes)"
+          }
+        }
+      },
+      "error": {
+        "cannot_connect": "Cannot connect to API",
+        "invalid_auth": "Invalid API key",
+        "unknown": "An unexpected error occurred"
+      },
+      "abort": {
+        "already_configured": "Already configured"
+      }
+    }
+  }
