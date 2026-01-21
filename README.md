@@ -1,6 +1,6 @@
-# JMA Precipitation Nowcast
+# Yahoo! Weather Nowcast for Home Assistant
 
-日本気象協会（JMA）のナウキャストを使用した降水予測ホームアシスタント統合です。
+Yahoo! JAPAN Weather APIの降水ナウキャストを使用したホームアシスタント統合です。
 
 ---
 
@@ -9,6 +9,25 @@
 ### 概要
 
 Yahoo! JAPAN Weather APIを使用したリアルタイム降水予測ホームアシスタント統合です。エリア内の降水を監視・予測するためのセンサーおよびバイナリセンサーエンティティを提供します。
+
+### Yahoo! JAPAN Weather APIについて
+
+このインテグレーションはYahoo! JAPANの気象情報APIを利用しています。
+
+- **提供情報**: リアルタイム降水予測（ナウキャスト）、気温、湿度
+- **更新間隔**: 5分ごと
+- **対応地域**: 日本国内
+- **API仕様**: RESTful API（JSON形式）
+- **制限事項**: リクエストレート制限あり
+
+**APIキー取得方法:**
+1. [Yahoo! JAPAN デベロッパーネットワーク](https://developer.yahoo.co.jp/)にアクセス
+2. Yahoo! JAPANのアカウントでログイン（またはアカウント作成）
+3. 「アプリケーション管理」から新しいアプリケーションを登録
+4. 「気象情報API」を選択・申し込み
+5. APIキーを取得
+
+**重要:** Yahoo! JAPANの利用規約に従ってください。このインテグレーションの使用は、Yahoo! JAPANの利用規約に同意したものとみなされます。
 
 ### 機能
 
@@ -29,16 +48,16 @@ Yahoo! JAPAN Weather APIを使用したリアルタイム降水予測ホーム�
 6. Home Assistantを再起動
 
 #### 方法2: 手動インストール
-1. `jma_precipitation_nowcast`フォルダをHome Assistantの`custom_components`ディレクトリにコピー
+1. `ha-yahoo-nowcast`フォルダをHome Assistantの`custom_components`ディレクトリにコピー
 2. Home Assistantを再起動
 3. 設定 → デバイスとサービス → 統合から追加
 
 ### 設定方法
 
-#### UIを使用した設定
+#### 設定ステップ
 1. 設定 → デバイスとサービス → 統合に移動
 2. 「統合を作成」をクリック
-3. 「JMA Precipitation Nowcast」を検索
+3. 「Yahoo! Weather Nowcast」を検索
 4. Yahoo! JAPAN APIキーを入力
 5. 緯度、経度、その他のパラメータを設定
 
@@ -87,6 +106,25 @@ Yahoo! JAPAN Weather APIを使用したリアルタイム降水予測ホーム�
 
 This Home Assistant integration provides real-time precipitation forecasts using Yahoo! JAPAN Weather API. It offers both sensor and binary sensor entities to monitor and predict rainfall in your area.
 
+### About Yahoo! JAPAN Weather API
+
+This integration utilizes Yahoo! JAPAN's weather information API.
+
+- **Information Provided**: Real-time precipitation forecasts (nowcast), temperature, humidity
+- **Update Interval**: Every 5 minutes
+- **Coverage Area**: Japan only
+- **API Specification**: RESTful API (JSON format)
+- **Limitations**: Request rate limiting applies
+
+**How to Get an API Key:**
+1. Visit [Yahoo! JAPAN Developer Network](https://developer.yahoo.co.jp/)
+2. Log in with your Yahoo! JAPAN account (or create one)
+3. Go to "Application Management" and register a new application
+4. Select and apply for the "Weather Information API"
+5. Obtain your API key
+
+**Important:** Please comply with Yahoo! JAPAN's terms of service. Use of this integration is deemed acceptance of Yahoo! JAPAN's terms of service.
+
 ### Features
 
 - **Precipitation Forecast Sensor**: Displays predicted precipitation levels for the next 30 minutes
@@ -106,7 +144,7 @@ This Home Assistant integration provides real-time precipitation forecasts using
 6. Restart Home Assistant
 
 #### Method 2: Manual Installation
-1. Copy the `jma_precipitation_nowcast` folder to your Home Assistant `custom_components` directory
+1. Copy the `ha-yahoo-nowcast` folder to your Home Assistant `custom_components` directory
 2. Restart Home Assistant
 3. Add the integration via Settings → Devices & Services
 
@@ -115,7 +153,7 @@ This Home Assistant integration provides real-time precipitation forecasts using
 #### Setup via UI
 1. Go to Settings → Devices & Services → Integrations
 2. Click "Create Integration"
-3. Search for "JMA Precipitation Nowcast"
+3. Search for "Yahoo! Weather Nowcast"
 4. Enter your Yahoo! JAPAN API key
 5. Configure latitude, longitude, and other parameters
 
