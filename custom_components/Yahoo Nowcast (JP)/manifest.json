@@ -1,5 +1,5 @@
 {
-    "domain": "jma_precipitation_nowcast",
+    "domain": "Yahoo Nowcast (JP)",
     "name": "Yahoo Nowcast (JP)",
     "version": "1.0.0",
     "documentation": "https://github.com/bventiq/ha-yahoo-nowcast",
