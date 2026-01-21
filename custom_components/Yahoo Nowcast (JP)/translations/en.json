@@ -3,9 +3,9 @@
       "step": {
         "user": {
           "title": "Yahoo Nowcast (JP) Setup",
-          "description": "Configure your Yahoo! JAPAN API key and observation location.",
+          "description": "Configure your Yahoo! JAPAN Client ID and observation location.",
           "data": {
-            "api_key": "API Key (Yahoo! JAPAN)",
+            "api_key": "Client ID (Yahoo! JAPAN)",
             "latitude": "Latitude",
             "longitude": "Longitude",
             "threshold": "Precipitation Detection Threshold (mm/h)",
@@ -15,7 +15,7 @@
       },
       "error": {
         "cannot_connect": "Cannot connect to API",
-        "invalid_auth": "Invalid API key",
+        "invalid_auth": "Invalid Client ID",
         "unknown": "An unexpected error occurred"
       },
       "abort": {

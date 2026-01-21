@@ -20,12 +20,12 @@ Yahoo! JAPAN Weather APIを使用したリアルタイム降水予測ホーム�
 - **API仕様**: RESTful API（JSON形式）
 - **制限事項**: リクエストレート制限あり
 
-**APIキー取得方法:**
+**Client ID取得方法:****
 1. [Yahoo! JAPAN デベロッパーネットワーク](https://developer.yahoo.co.jp/)にアクセス
 2. Yahoo! JAPANのアカウントでログイン（またはアカウント作成）
 3. 「アプリケーション管理」から新しいアプリケーションを登録
 4. 「気象情報API」を選択・申し込み
-5. APIキーを取得
+5. Client IDを取得
 
 **重要:** Yahoo! JAPANの利用規約に従ってください。このインテグレーションの使用は、Yahoo! JAPANの利用規約に同意したものとみなされます。
 
@@ -58,11 +58,11 @@ Yahoo! JAPAN Weather APIを使用したリアルタイム降水予測ホーム�
 1. 設定 → デバイスとサービス → 統合に移動
 2. 「統合を作成」をクリック
 3. 「Yahoo! Weather Nowcast」を検索
-4. Yahoo! JAPAN APIキーを入力
+4. Yahoo! JAPAN Client IDを入力
 5. 緯度、経度、その他のパラメータを設定
 
 #### 設定パラメータ
-- **APIキー**: Yahoo! JAPAN Weather APIキー（必須）
+- **Client ID**: Yahoo! JAPAN Weather APIのClient ID（必須）
 - **緯度**: 観測位置の緯度（必須）
 - **経度**: 観測位置の経度（必須）
 - **検知閾値**: アラートをトリガーする最小降水量（mm/h、デフォルト：0.2）
@@ -81,12 +81,12 @@ Yahoo! JAPAN Weather APIを使用したリアルタイム降水予測ホーム�
 ### トラブルシューティング
 
 #### APIに接続できない
-- APIキーが正しいか確認してください
+- Client IDが正しいか確認してください
 - インターネット接続を確認してください
 - APIエンドポイントにアクセスできることを確認してください
 
 #### 認証が無効
-- APIキーが有効かつアクティブであることを確認してください
+- Client IDが有効かつアクティブであることを確認してください
 - Yahoo! JAPAN APIドキュメントでキー要件を確認してください
 
 #### データが表示されない
