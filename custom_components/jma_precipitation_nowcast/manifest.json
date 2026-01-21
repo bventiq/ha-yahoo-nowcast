@@ -3,6 +3,7 @@
     "name": "JMA Precipitation Nowcast",
     "version": "1.0.0",
     "documentation": "https://github.com/bventiq/ha-yahoo-nowcast",
+    "issue_tracker": "https://github.com/bventiq/ha-yahoo-nowcast/issues",
     "requirements": ["aiohttp>=3.8.0"],
     "codeowners": ["@bventiq"],
     "config_flow": true,
