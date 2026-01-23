@@ -23,14 +23,20 @@ class YahooWeatherAPI:
             'output': 'json'
         }
         
+        headers = {
+            "User-Agent": f"Yahoo AppID: {self.api_key}"
+        }
+        
         async with aiohttp.ClientSession() as session:
             async with session.get(
                 self.base_url,
                 params=params,
+                headers=headers,
                 timeout=aiohttp.ClientTimeout(total=self.timeout)
             ) as response:
                 if response.status != 200:
-                    raise Exception(f"API request failed with status {response.status}")
+                    text = await response.text()
+                    raise Exception(f"API request failed with status {response.status}: {text}")
                 
                 data = await response.json()
                 return self._parse_forecast_data(data)
@@ -40,7 +46,6 @@ class YahooWeatherAPI:
         try:
             feature = data.get('Feature', [{}])[0]
             weather_data = feature.get('Property', {}).get('WeatherList', {}).get('Weather', [])
-            weather_info = feature.get('Property', {}).get('Weather', [])
             
             forecasts = []
             current_time = datetime.now()
@@ -55,21 +60,10 @@ class YahooWeatherAPI:
                     'intensity': intensity
                 })
             
-            # 現在の気温と湿度を抽出
-            current_temp = None
-            current_humidity = None
-            
-            if weather_info:
-                current_weather = weather_info[0]
-                current_temp = float(current_weather.get('Temperature', 0)) if current_weather.get('Temperature') else None
-                current_humidity = int(current_weather.get('Humidity', 0)) if current_weather.get('Humidity') else None
-            
             return {
                 'forecasts': forecasts,
                 'last_updated': current_time.isoformat(),
-                'current_intensity': forecasts[0]['intensity'] if forecasts else 0,
-                'temperature': current_temp,
-                'humidity': current_humidity
+                'current_intensity': forecasts[0]['intensity'] if forecasts else 0
             }
             
         except (KeyError, IndexError, ValueError) as e:

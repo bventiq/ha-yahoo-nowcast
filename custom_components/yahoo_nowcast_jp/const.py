@@ -18,5 +18,3 @@ API_TIMEOUT = 10
 # Entity names
 SENSOR_NAME = "Precipitation Forecast"
 BINARY_SENSOR_NAME = "Rain Soon"
-TEMPERATURE_SENSOR_NAME = "Temperature"
-HUMIDITY_SENSOR_NAME = "Humidity"
