@@ -23,15 +23,10 @@ class YahooWeatherAPI:
             'output': 'json'
         }
         
-        headers = {
-            "User-Agent": f"Yahoo AppID: {self.api_key}"
-        }
-        
         async with aiohttp.ClientSession() as session:
             async with session.get(
                 self.base_url,
                 params=params,
-                headers=headers,
                 timeout=aiohttp.ClientTimeout(total=self.timeout)
             ) as response:
                 if response.status != 200:
