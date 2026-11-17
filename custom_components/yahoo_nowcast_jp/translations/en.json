@@ -15,6 +15,7 @@
       },
       "error": {
         "cannot_connect": "Cannot connect to API",
+        "invalid_threshold": "Threshold must be a finite number",
         "invalid_auth": "Invalid Client ID",
         "unknown": "An unexpected error occurred"
       },
