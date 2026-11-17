@@ -15,6 +15,7 @@
       },
       "error": {
         "cannot_connect": "APIに接続できません",
+        "invalid_threshold": "しきい値は有限の数値を指定してください",
         "invalid_auth": "Client IDが無効です",
         "unknown": "予期しないエラーが発生しました"
       },

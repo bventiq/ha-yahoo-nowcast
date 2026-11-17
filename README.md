@@ -48,7 +48,7 @@ Yahoo! JAPAN Weather APIを使用したリアルタイム降水予測ホーム�
 6. Home Assistantを再起動
 
 #### 方法2: 手動インストール
-1. `ha-yahoo-nowcast`フォルダをHome Assistantの`custom_components`ディレクトリにコピー
+1. このリポジトリの`custom_components/yahoo_nowcast_jp`フォルダを、Home Assistantの`/config/custom_components/yahoo_nowcast_jp`にコピー
 2. Home Assistantを再起動
 3. 設定 → デバイスとサービス → 統合から追加
 
@@ -144,7 +144,7 @@ This integration utilizes Yahoo! JAPAN's weather information API.
 6. Restart Home Assistant
 
 #### Method 2: Manual Installation
-1. Copy the `ha-yahoo-nowcast` folder to your Home Assistant `custom_components` directory
+1. Copy the `custom_components/yahoo_nowcast_jp` folder from this repository to `/config/custom_components/yahoo_nowcast_jp` on your Home Assistant
 2. Restart Home Assistant
 3. Add the integration via Settings → Devices & Services
 

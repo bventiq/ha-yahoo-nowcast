@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import logging
+import math
 from typing import Any
 
 import voluptuous as vol
@@ -21,6 +22,7 @@ from .const import (
     CONF_FORECAST_MINUTES,
     DEFAULT_THRESHOLD,
     DEFAULT_FORECAST_MINUTES,
+    MAX_FORECAST_MINUTES,
 )
 from .api import YahooWeatherAPI
 
@@ -39,8 +41,8 @@ STEP_USER_DATA_SCHEMA = vol.Schema({
     vol.Required(CONF_API_KEY): str,
     vol.Required(CONF_LATITUDE): cv.latitude,
     vol.Required(CONF_LONGITUDE): cv.longitude,
-    vol.Optional(CONF_THRESHOLD, default=DEFAULT_THRESHOLD): vol.Coerce(float),
-    vol.Optional(CONF_FORECAST_MINUTES, default=DEFAULT_FORECAST_MINUTES): vol.Coerce(int),
+    vol.Optional(CONF_THRESHOLD, default=DEFAULT_THRESHOLD): vol.All(vol.Coerce(float), vol.Range(min=0, min_included=False, max=1000)),
+    vol.Optional(CONF_FORECAST_MINUTES, default=DEFAULT_FORECAST_MINUTES): vol.All(vol.Coerce(int), vol.Range(min=1, max=MAX_FORECAST_MINUTES)),
 })
 
 
@@ -56,20 +58,25 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
         errors = {}
 
         if user_input is not None:
-            try:
-                info = await validate_input(self.hass, user_input)
-            except CannotConnect:
-                errors["base"] = "cannot_connect"
-            except InvalidAuth:
-                errors["base"] = "invalid_auth"
-            except Exception as err:  # pylint: disable=broad-except
-                _LOGGER.error(f"Unexpected error: {err}")
-                errors["base"] = "unknown"
+            # NaN/inf pass vol.Range, and custom validators cannot be used in
+            # the schema (voluptuous_serialize), so check here before saving.
+            if not math.isfinite(user_input[CONF_THRESHOLD]):
+                errors[CONF_THRESHOLD] = "invalid_threshold"
             else:
-                return self.async_create_entry(
-                    title=info["title"],
-                    data=user_input
-                )
+                try:
+                    info = await validate_input(self.hass, user_input)
+                except CannotConnect:
+                    errors["base"] = "cannot_connect"
+                except InvalidAuth:
+                    errors["base"] = "invalid_auth"
+                except Exception as err:  # pylint: disable=broad-except
+                    _LOGGER.error(f"Unexpected error: {err}")
+                    errors["base"] = "unknown"
+                else:
+                    return self.async_create_entry(
+                        title=info["title"],
+                        data=user_input
+                    )
 
         # Get default coordinates
         latitude = self.hass.config.latitude
@@ -90,8 +97,8 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
             vol.Required(CONF_API_KEY): str,
             vol.Required(CONF_LATITUDE, default=latitude): cv.latitude,
             vol.Required(CONF_LONGITUDE, default=longitude): cv.longitude,
-            vol.Optional(CONF_THRESHOLD, default=DEFAULT_THRESHOLD): vol.Coerce(float),
-            vol.Optional(CONF_FORECAST_MINUTES, default=DEFAULT_FORECAST_MINUTES): vol.Coerce(int),
+            vol.Optional(CONF_THRESHOLD, default=DEFAULT_THRESHOLD): vol.All(vol.Coerce(float), vol.Range(min=0, min_included=False, max=1000)),
+            vol.Optional(CONF_FORECAST_MINUTES, default=DEFAULT_FORECAST_MINUTES): vol.All(vol.Coerce(int), vol.Range(min=1, max=MAX_FORECAST_MINUTES)),
         })
 
         return self.async_show_form(
